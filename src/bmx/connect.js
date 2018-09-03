@@ -1,6 +1,5 @@
 import React, {
-  Component,
-  PureComponent
+  Component
 } from 'react';
 
 import bind from './bind';

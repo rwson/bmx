@@ -51,6 +51,8 @@ export default class App extends Component {
 
 ### 高级用法
 
+#### 用`watch`来控制组件重新渲染的前置条件
+
 如果你不想在每次`state`发生改变就重新渲染, 而是某些状态发生改变再进行渲染, 可以用提供的`watch`装饰器进行连接来制定一些规则控制`render`执行时的前置条件
 
 - 状态定义
@@ -96,3 +98,23 @@ export default class App extends Component {
 ```
 
 这样改写完之后, 就只有在`someState.state.time16`发生改变之后才会进行`render`调用
+
+#### 用`computed`做计算属性, 统一处理需要格式化输出的数据
+
+在使用过程当中, 发现有时候针对一些需要格式化输出的, 只能放在各个`Component`中实现, 结合之前的经验, 觉得如果像[mobx](https://github.com/mobxjs/mobx)那样支持`computed`会方便很多
+
+- 状态定义
+```javascript
+//  some-state.js
+import { State } from 'path/to/bmx';
+class SomeState extends State {
+  state = {
+    firstName: 'rw',
+    lastName: 'son'
+  }
+
+  // @computed
+}
+const someState = new SomeState;
+export default someState;
+```

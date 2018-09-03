@@ -1,7 +1,10 @@
 import isEqual from 'lodash.isequal';
-import { typeOf } from './util';
 
 class State {
+
+  state = {}
+
+  computed = {}
 
   /**
    * 更新store里的state
@@ -19,7 +22,7 @@ class State {
       const prevState = this.state;
       this.state = {
         ...prevState,
-        ...nextState,
+        ...nextState
       };
 
       //  触发didStateUpdate, 更新视图
@@ -41,32 +44,6 @@ class State {
 
   didStateUpdate() {}
 
-  initComputed() {
-    const keys = Object.keys(this.computed),
-      { state } = this;
-    let val, valFn;
-    console.log(this.computed);
-    
-    keys.forEach((key) => {
-      val = this.computed[key];
-      if (typeOf(val) === 'function') {
-        valFn = val;
-        val = valFn.call(this, this.state);
-      } else {
-        throw new TypeError(`State's computed property ${key} excepted to be a function, not ${typeOf(val)}`);
-      }
-      console.log(this);
-      Object.defineProperty(this.computed, key, {
-        value: val,
-        configurable: false,
-        get: () => {
-          // console.log(this);
-          
-          return valFn.call(this, this.state);
-        }
-      });
-    });
-  }
 }
 
 export default State;

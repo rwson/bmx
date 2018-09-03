@@ -23,9 +23,13 @@ class App extends Component {
         <h5 className="h5">{appState1.state.state2}</h5>
         <h5 className="h5">{appState1.state.firstName}</h5>
         <h5 className="h5">{appState1.state.lastName}</h5>
+        <h5 className="h5">{appState1.computed.fullName}</h5>
         <button onClick={this.clicked.bind(this, 'state1')}>state1</button>
+        <br/>
         <button onClick={this.clicked.bind(this, 'state2')}>state2</button>
+        <br/>
         <button onClick={this.clicked.bind(this, 'firstName')}>firstName</button>
+        <br/>
         <button onClick={this.clicked.bind(this, 'lastName')}>lastName</button>
       </div>
     );

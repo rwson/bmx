@@ -1,29 +1,25 @@
 // import { State } from './bbx-source';
-import { State } from './bmx';
-
-let count = 0;
+import { State, computed } from './bmx';
 
 class AppState1 extends State {
-    constructor() {
-        super();
-        this.state = { 
-            state1: 'state1',
-            state2: 'state2',
-            firstName: 'rw',
-            lastName: 'son'
-        };
-        this.computed = {
-            name(state) {
-                return state.firstName + state.lastName;
-            }
-        }
-        console.log(this);
+
+    state = {
+        state1: 'state1',
+        state2: 'state2',
+        firstName: 'rw',
+        lastName: 'son'
+    }
+
+    @computed
+    fullName() {
+        return this.state.firstName + this.state.lastName;
     }
 
     changeState(state) {
         this.setState({
             [state]: Math.random().toString(16)
         });
+        console.log(this.computed);
     }
 
     didStateUpdate() {
