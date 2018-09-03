@@ -53,7 +53,7 @@ export default class App extends Component {
 
 如果你不想在每次`state`发生改变就重新渲染, 而是某些状态发生改变再进行渲染, 可以用提供的`watch`装饰器进行连接来制定一些规则控制`render`执行时的前置条件
 
-- 使用该状态
+- 状态定义
 ```javascript
 //  some-state.js
 import { State } from 'path/to/bmx';
