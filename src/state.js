@@ -1,6 +1,7 @@
 // import { State } from './bbx-source';
 import { State, computed } from './bmx';
 
+@computed
 class AppState1 extends State {
 
     state = {
@@ -10,16 +11,17 @@ class AppState1 extends State {
         lastName: 'son'
     }
 
-    @computed
-    fullName() {
-        return this.state.firstName + this.state.lastName;
+    computed = {
+        fullName() {
+            return this.state.firstName + this.state.lastName;
+        }
     }
 
     changeState(state) {
         this.setState({
             [state]: Math.random().toString(16)
         });
-        console.log(this.computed);
+        console.log(this.fullName);
     }
 
     didStateUpdate() {
