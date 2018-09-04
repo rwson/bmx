@@ -113,7 +113,10 @@ class SomeState extends State {
     lastName: 'son'
   }
 
-  // @computed
+  @computed
+  fullName () {
+    return this.state.firstName + this.state.lastName;
+  }
 }
 const someState = new SomeState;
 export default someState;

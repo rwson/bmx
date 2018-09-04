@@ -1,7 +1,6 @@
-// import { State } from './bbx-source';
+
 import { State, computed } from './bmx';
 
-@computed
 class AppState1 extends State {
 
     state = {
@@ -11,6 +10,7 @@ class AppState1 extends State {
         lastName: 'son'
     }
 
+    @computed
     computed = {
         fullName() {
             return this.state.firstName + this.state.lastName;

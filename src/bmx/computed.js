@@ -49,11 +49,14 @@ class State {
   didStateUpdate() {}
 }
 
-const computed = (target) => {
+const computed = (target, key, descriptor) => {
     // descriptor.value = () => {
     //     return method.call(target);
     // };
-    return target;
+    console.log(descriptor.initializer());
+    console.log(target);
+
+    // return target;
 };
 
 export default computed;
