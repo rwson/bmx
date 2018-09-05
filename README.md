@@ -99,25 +99,6 @@ export default class App extends Component {
 
 这样改写完之后, 就只有在`someState.state.time16`发生改变之后才会进行`render`调用
 
-#### 用`computed`做计算属性, 统一处理需要格式化输出的数据
+#### TODO
 
-在使用过程当中, 发现有时候针对一些需要格式化输出的, 只能放在各个`Component`中实现, 结合之前的经验, 觉得如果像[mobx](https://github.com/mobxjs/mobx)那样支持`computed`会方便很多
-
-- 状态定义
-```javascript
-//  some-state.js
-import { State } from 'path/to/bmx';
-class SomeState extends State {
-  state = {
-    firstName: 'rw',
-    lastName: 'son'
-  }
-
-  @computed
-  fullName () {
-    return this.state.firstName + this.state.lastName;
-  }
-}
-const someState = new SomeState;
-export default someState;
-```
+- 实现`computed`计算属性

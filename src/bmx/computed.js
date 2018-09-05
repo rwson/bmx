@@ -1,10 +1,11 @@
 import isEqual from 'lodash.isequal';
-import { typeOf } from './util';
+import {
+  typeOf
+} from './util';
 
 class State {
 
-  constructor() {
-  }
+  constructor() {}
 
   state = {}
 
@@ -41,7 +42,9 @@ class State {
    * @param {Object} nextState 
    */
   shouldStateUpdate(nextState) {
-    const { state } = this;
+    const {
+      state
+    } = this;
     //  借用lodash来判断前后state是否相同
     return !(isEqual(state, nextState));
   }
@@ -49,14 +52,27 @@ class State {
   didStateUpdate() {}
 }
 
-const computed = (target, key, descriptor) => {
-    // descriptor.value = () => {
-    //     return method.call(target);
-    // };
-    console.log(descriptor.initializer());
-    console.log(target);
+const computed = (target, key, desc) => {
+  console.log(target, key, desc);
 
-    // return target;
+  // return (target) => {
+  //   target.computed = {};
+  //   for (const key of keys) {
+  //     console.log(props);
+  //     Object.defineProperty(target.computed, key, {
+  //       get() {
+  //         return 'fuck';
+  //       },
+  //       // enumerable: false,
+  //       // configurable: true,
+  //       // writable: true
+  //     });
+  //   }
+  //   console.log(target);
+  //   return target;
+  // };
+
+  // return props;
 };
 
 export default computed;
